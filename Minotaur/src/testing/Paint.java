@@ -69,13 +69,13 @@ public class Paint extends JFrame {
 			
 			//Adjustable positioning below.
 			if (getWidth() > getHeight())
-				g.drawImage(blocky, assets.GenLevel.mainChar.getX() * getHeight() / 12 + 13,
-						assets.GenLevel.mainChar.getY() * getHeight() / 12, getHeight() / 12 * 5 / 7, getHeight() / 12,
+				g.drawImage(blocky, assets.GenLevel.mainChar.getX() * getHeight() / 12 + getHeight() / 12/6 ,
+						assets.GenLevel.mainChar.getY() * getHeight() / 12 + getHeight() / 12/4, getHeight() / 12 * 5 / 7, getHeight() / 12 * 5 / 7,
 						null);
 			else
 
-				g.drawImage(blocky, assets.GenLevel.mainChar.getX() * getWidth() / 12 + 13,
-						assets.GenLevel.mainChar.getY() * getWidth() / 12, getWidth() / 12 * 5 / 7, getWidth() / 12,
+				g.drawImage(blocky, assets.GenLevel.mainChar.getX() * getWidth() / 12/* + 13*/,
+						assets.GenLevel.mainChar.getY() * getWidth() / 12, getWidth() / 12 * 5 / 7, getWidth() / 12 * 5/7,
 						null);
 
 			// g.drawImage(blocky, assets.GenLevel.mainChar.getX() * 70 + 13,
