@@ -16,7 +16,7 @@ class TimerListener1 implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		End.CheckEnd();
-		//Paint.paint(GenLevel.grid);
+		Paint.paint(GenLevel.grid);
 		testing.Paint.drawPanel.repaint();
 	}
 

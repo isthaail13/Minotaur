@@ -11,6 +11,12 @@ import java.io.IOException;
 
 public class Paint extends JFrame {
 
+	final int STANDARD_WIDTH_FOR_HEIGHT = getHeight() / 12 * 5 / 7 + 1;
+	final int STANDARD_HEIGHT_FOR_HEIGHT = getHeight() / 12 * 5 / 7 +1;
+	final int STANDARD_XPOSITION_FOR_HEIGHT = getHeight() / 12 + getHeight() / 12 / 6;
+	final int STANDARD_YPOSITION_FOR_HEIGHT = getHeight() / 12 + getHeight() / 12 / 6;
+	
+	
 	public static DrawPanel drawPanel = new DrawPanel();
 
 	public Paint() {
@@ -51,7 +57,7 @@ public class Paint extends JFrame {
 				for (int j = 0; j < 10; j++) {
 					icon = new ImageIcon(String.format("icons/maze/type%d.png", assets.GenLevel.grid[i][j].getType()));
 					blocky = icon.getImage();
-					//Adjustable sizing, below.
+					// Adjustable sizing, below.
 					if (getWidth() > getHeight())
 						g.drawImage(blocky, j * getHeight() / 12, i * getHeight() / 12, getHeight() / 12,
 								getHeight() / 12, null);
@@ -66,17 +72,16 @@ public class Paint extends JFrame {
 			icon = new ImageIcon(String.format("icons/mainChar/%d.png", assets.GenLevel.mainChar.getOrientation()));
 			blocky = icon.getImage();
 
-			
-			//Adjustable positioning below.
+			// Adjustable positioning below.
 			if (getWidth() > getHeight())
-				g.drawImage(blocky, assets.GenLevel.mainChar.getX() * getHeight() / 12 + getHeight() / 12/6 ,
-						assets.GenLevel.mainChar.getY() * getHeight() / 12 + getHeight() / 12/4, getHeight() / 12 * 5 / 7, getHeight() / 12 * 5 / 7,
-						null);
+				g.drawImage(blocky, assets.GenLevel.mainChar.getX() * getHeight() / 12 + getHeight() / 12 / 6,
+						assets.GenLevel.mainChar.getY() * getHeight() / 12 + getHeight() / 12 / 4,
+						getHeight() / 12 * 5 / 7 + 1, getHeight() / 12 * 5 / 7 +1, null);
 			else
 
-				g.drawImage(blocky, assets.GenLevel.mainChar.getX() * getWidth() / 12/* + 13*/,
-						assets.GenLevel.mainChar.getY() * getWidth() / 12, getWidth() / 12 * 5 / 7, getWidth() / 12 * 5/7,
-						null);
+				g.drawImage(blocky, assets.GenLevel.mainChar.getX() * getWidth() / 12/* + 13 */,
+						assets.GenLevel.mainChar.getY() * getWidth() / 12, getWidth() / 12 * 5 / 7,
+						getWidth() / 12 * 5 / 7, null);
 
 			// g.drawImage(blocky, assets.GenLevel.mainChar.getX() * 70 + 13,
 			// assets.GenLevel.mainChar.getY() * 70, 50, 70,

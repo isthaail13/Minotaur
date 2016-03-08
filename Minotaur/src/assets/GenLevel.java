@@ -17,7 +17,7 @@ public class GenLevel {
 	public static void main(String[] args) {
 
 		genLevel1(grid);
-		testing.Paint.main();
+		//testing.Paint.main();
 		testing.KeyEventDemo.begin();
 		OpsTimer.timer1.start();
 		
