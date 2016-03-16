@@ -15,6 +15,7 @@ public class End extends Block {
 		if (GenLevel.mainChar.getX() != GenLevel.end.getX() || GenLevel.mainChar.getY() != GenLevel.end.getY())
 			return;
 		else{
+			
 			GenLevel.genLevel();
 		}
 	}

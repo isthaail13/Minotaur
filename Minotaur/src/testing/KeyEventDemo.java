@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import assets.End;
+
 public class KeyEventDemo extends JFrame {
 
 	private KeyboardPanel keyboardPanel = new KeyboardPanel();
@@ -143,14 +145,14 @@ class KeyPause implements ActionListener {
 		// KeyEventDemo.pause = false;
 		switch (KeyEventDemo.udlr){
 		
-		case 0: assets.GenLevel.mainChar.moveDown(); break;
+		case 0: assets.GenLevel.mainChar.moveDown();  break;
 		case 1: assets.GenLevel.mainChar.moveUp(); break;
 		case 2: assets.GenLevel.mainChar.moveLeft(); break;
 		case 3: assets.GenLevel.mainChar.moveRight(); break;
 		
 		
 		}
-		
+		//End.CheckEnd();
 
 	}
 

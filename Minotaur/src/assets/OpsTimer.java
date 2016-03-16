@@ -12,14 +12,15 @@ public class OpsTimer {
 
 // For anything that needs to be instantaneous, let it fall under timer1.
 class TimerListener1 implements ActionListener {
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		End.CheckEnd();
-		Paint.paint(GenLevel.grid);
-		testing.Paint.drawPanel.repaint();
+		Paint.paint(GenLevel.grid); //Does the command prompt output.
+		//testing.Paint.drawPanel.repaint(); //Refreshes the GUI window.
 	}
-
+	
 }
 
 // For anything that needs to take a measured amount of time, let it fall under
