@@ -1,0 +1,8 @@
+Name	Lives	Moves 	Coins 	Time
+alex 1 18 1 0 min, 14 secalex 2 18 1 0 min, 18 sec
+ alex 2 18 1 0 min, 21 sec
+alex       1 18 0 0 min, 13 sec
+alex  0     18    0     0 min, 30 sec
+ian   2     28    5     2 min, 0 sec
+alex  2     18    3     0 min, 24 sec
+JC    2     18    1     0 min, 59 sec
