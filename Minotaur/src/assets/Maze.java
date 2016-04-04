@@ -37,6 +37,8 @@ public class Maze extends Block {
 		this.type = type;
 		setMove(type);
 	}
+	
+	
 
 	// Getters and Setters. I do not allow the user to individually set movement
 	// abilities. They must change the

@@ -6,21 +6,42 @@ import javax.swing.*;
 
 public class OpsTimer {
 
-	static Timer timer1 = new Timer(1000 / 30, new TimerListener1());
-	static Timer timer2 = new Timer(200, new TimerListener2());
+	static Timer timer1 = new Timer(600, new TimerListener1());
+	static Timer timer2 = new Timer(20000, new TimerListener2());
 }
 
 // For anything that needs to be instantaneous, let it fall under timer1.
 class TimerListener1 implements ActionListener {
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		Paint paint = new Paint();
 		End.CheckEnd();
+<<<<<<< HEAD
 		//Paint.paint(GenLevel.grid); //Does the command prompt output.
 		testing.Paint.drawPanel.repaint(); //Refreshes the GUI window.
+=======
+		paint.paint(GenLevel.grid);
+		/****************************************************************
+		 * This is the code the fricked out some people but it is an easy thing. 
+		 * By the way, I am calling the objects I created
+		 ****************************************************************/
+		GenLevel.endGame();
+		MethodCaller.callCoins();
+		MethodCaller.callTeleporter();
+		MethodCaller.callLives();	
+		MethodCaller.callRobotRunner();
+		/*******************************************************************
+		 * Calling killer methods
+		 *******************************************************************/
+		MethodCaller.callPit();
+		MethodCaller.callMon();
+		MethodCaller.callMum();
+		
+		testing.Paint.drawPanel.repaint();
+>>>>>>> origin/master
 	}
-	
+
 }
 
 // For anything that needs to take a measured amount of time, let it fall under
