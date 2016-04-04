@@ -17,8 +17,8 @@ class TimerListener1 implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		End.CheckEnd();
-		Paint.paint(GenLevel.grid); //Does the command prompt output.
-		//testing.Paint.drawPanel.repaint(); //Refreshes the GUI window.
+		//Paint.paint(GenLevel.grid); //Does the command prompt output.
+		testing.Paint.drawPanel.repaint(); //Refreshes the GUI window.
 	}
 	
 }

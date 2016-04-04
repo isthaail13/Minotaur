@@ -86,7 +86,12 @@ public class Paint extends JFrame {
 			// g.drawImage(blocky, assets.GenLevel.mainChar.getX() * 70 + 13,
 			// assets.GenLevel.mainChar.getY() * 70, 50, 70,
 			// null);
-
+			
+			icon = new ImageIcon(String.format("icons/mainChar/%d.png", assets.GenLevel.mainChar.getOrientation()));
+			blocky = icon.getImage();
+			
+			g.drawImage(blocky, 100, 100, 100, 100, null);
+			g.drawImage(blocky, 200, 200, 100, 100, null);
 		}
 
 		@Override /** Draw the character */
