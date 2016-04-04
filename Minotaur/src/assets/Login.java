@@ -4,7 +4,7 @@ package assets;
 import java.util.Scanner;
 //My Login class displays the welcome message
 public class Login {
-	//The coinstructor
+	//The constructor
 	Login(){
 
 

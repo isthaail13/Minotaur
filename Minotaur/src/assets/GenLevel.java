@@ -44,15 +44,15 @@ public class GenLevel {
 	// The main method is only here for testing purposes. When the game finally
 	// runs, main method will be taken out.
 	public static void main(String[] args) {
-<<<<<<< HEAD
+
 		
 		genLevel1(grid);
-		testing.Paint.main(); //Output Window for GUI.
+		//testing.Paint.main(); //Output Window for GUI.
 		testing.KeyEventDemo.begin();
 		OpsTimer.timer1.start();
 		
 		
-=======
+
 		try {
 			fileMaze = new ReadFileScores();
 			/*******************************************************************
@@ -90,7 +90,7 @@ public class GenLevel {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
->>>>>>> origin/master
+
 	}
 	
 	public static void endGame(){

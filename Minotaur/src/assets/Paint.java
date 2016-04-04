@@ -1,9 +1,9 @@
 package assets;
 
 public class Paint {
-	char[][] array = new char[30][30];
+	static char[][] array = new char[30][30];
 	public static String[][] arrayThreadBall;
-	public void paint(Maze[][] grid) {
+	public static void paint(Maze[][] grid) {
 		char out = '\u0000';
 		int count = 0;
 		for (int i = 0; i < 30; i++){
@@ -33,7 +33,7 @@ public class Paint {
 
 	}
 
-	char getChar(int i, int j, Maze[][] grid) {
+	static char getChar(int i, int j, Maze[][] grid) {
 		int y = (i / 3);
 		int x = (j / 3);
 

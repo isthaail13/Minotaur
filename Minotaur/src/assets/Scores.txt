@@ -18,3 +18,7 @@ rewre 1     46    4     0 min, 44 sec
 fredasd 1     44    4     0 min, 39 sec
 alex  2     131   10    1 min, 34 sec
 last  0     103   6     1 min, 23 sec
+null  0     3     0     0 min, 13 sec
+null  0     3     0     0 min, 11 sec
+null  0     3     0     0 min, 5 sec
+null  0     4     0     0 min, 16 sec
