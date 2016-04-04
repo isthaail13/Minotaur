@@ -2,18 +2,17 @@ package assets;
 
 public class Paint {
 	char[][] array = new char[30][30];
-
+	public static String[][] arrayThreadBall;
 	public void paint(Maze[][] grid) {
 		char out = '\u0000';
 		int count = 0;
-		String[][] arrayThreadBall;
 		for (int i = 0; i < 30; i++){
 			for (int j = 0; j < 30; j++) {
 				out = getChar(i, j, grid);
 		//printing if the code is in array
 				if(GenLevel.mainChar.getX() == GenLevel.ball.getX()
 						&& GenLevel.mainChar.getY() == GenLevel.ball.getY()) {
-					arrayThreadBall = GenLevel.threadBall.DimensionalArrayList();
+					arrayThreadBall = GenLevel.threadBall.DimensionalArrayList(GenLevel.level);
 					try{
 						if(arrayThreadBall[i][j] == "+"){
 							System.out.print(arrayThreadBall[i][j]);
@@ -25,32 +24,10 @@ public class Paint {
 					}
 				}else{
 				System.out.print(out);
-				}
 				array[i][j] = out;
+				}
 			}
 			System.out.println();
-		}
-		
-		for (int i = 0; i < GenLevel.coinArray.size(); i++) {
-			if (GenLevel.mainChar.getX() == GenLevel.coinArray.get(i).getX()
-					&& GenLevel.mainChar.getY() == GenLevel.coinArray.get(i).getY()) {
-				GenLevel.coinArray.remove(i);
-				GenLevel.mainChar.addCoins();
-			}
-		}
-
-		if (GenLevel.mainChar.getX() == GenLevel.transporter.getTransporterX()
-				&& GenLevel.mainChar.getY() == GenLevel.transporter.getTransporterY()) {
-			GenLevel.mainChar.setLocation(8, 3);
-		}
-		for (int i = 0; i < GenLevel.life.size(); i++) {
-			if (GenLevel.life.size() > 0) {
-				if (GenLevel.life.get(i).getX() == GenLevel.mainChar.getX()
-						&& GenLevel.life.get(i).getY() == GenLevel.mainChar.getY()) {
-					GenLevel.mainChar.addLives();
-					GenLevel.life.remove(i);
-				}
-			}
 		}
 		System.out.print(GenLevel.mainChar.path.toString());
 
@@ -70,31 +47,31 @@ public class Paint {
 				if (grid[y][x].getCanMoveUp() == false || grid[y][x].getCanMoveLeft() == false)
 					return 'x';
 				else
-					return '.';
+					return ' ';
 			else if (j % 3 == 1)
 				if (grid[y][x].getCanMoveUp() == false)
 					return 'x';
 				else
-					return '.';
+					return ' ';
 			else {
 				if (grid[y][x].getCanMoveUp() == false || grid[y][x].getCanMoveRight() == false)
 					return 'x';
 				else
-					return '.';
+					return ' ';
 			}
 		} else if (i % 3 == 1) {
 			if (j % 3 == 0)
 				if (grid[y][x].getCanMoveLeft() == false)
 					return 'x';
 				else
-					return '.';
+					return ' ';
 			else if (j % 3 == 1) {
 				return paintMiddle(x, y);
 			} else {
 				if (grid[y][x].getCanMoveRight() == false)
 					return 'x';
 				else
-					return '.';
+					return ' ';
 			}
 		} else {
 
@@ -102,19 +79,19 @@ public class Paint {
 				if (grid[y][x].getCanMoveDown() == false || grid[y][x].getCanMoveLeft() == false)
 					return 'x';
 				else
-					return '.';
+					return ' ';
 
 			else if (j % 3 == 1)
 				if (grid[y][x].getCanMoveDown() == false)
 					return 'x';
 				else
-					return '.';
+					return ' ';
 
 			else {
 				if (grid[y][x].getCanMoveDown() == false || grid[y][x].getCanMoveRight() == false)
 					return 'x';
 				else
-					return '.';
+					return ' ';
 			}
 		}
 	}
@@ -127,8 +104,15 @@ public class Paint {
 			return 'E';
 		if (GenLevel.start.getX() == x && GenLevel.start.getY() == y)
 			return 'S';
+		
+		
+		/****************************************************************
+		 * Here I put the elements that i created into the maze 
+		 * Setting its location
+		 ****************************************************************/
 		if (GenLevel.rr.getX() == x && GenLevel.rr.getY() == y)
 			return 'Y';
+
 		if (GenLevel.transporter.getTransporterX() == x && GenLevel.transporter.getTransporterY() == y)
 			return 'T';
 		if (GenLevel.ball.getX() == x && GenLevel.ball.getY() == y)
@@ -151,8 +135,30 @@ public class Paint {
 					return '+';
 			}
 		}
+		/****************************************************************
+		 ****************************************************************/
 		
-		return '.';
+		/** 
+		 * from here by Ian
+		 * 
+		 * This method check when the player has event such as falling into pit.
+		 * In case, this method invoke and check the situation to decide next step.
+		 * After it check the rest of character life then restart the level or  
+		 * display the game is over message. 
+		 */
+		
+		if (GenLevel.pit.getX() == x && GenLevel.pit.getY() == y)
+			return 'U';
+		if (GenLevel.monster.getX() == x && GenLevel.monster.getY() == y)
+			return 'G';
+		if (GenLevel.mummy.getX() == x && GenLevel.mummy.getY() == y)
+			return 'M';
+		
+		/**
+		 * end of Ian
+		 */
+		
+		return ' ';
 
 	}
 }
