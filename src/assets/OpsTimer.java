@@ -18,6 +18,22 @@ class TimerListener1 implements ActionListener {
 		Paint paint = new Paint();
 		End.CheckEnd();
 		paint.paint(GenLevel.grid);
+		/****************************************************************
+		 * This is the code the fricked out some people but it is an easy thing. 
+		 * By the way, I am calling the objects I created
+		 ****************************************************************/
+		GenLevel.endGame();
+		MethodCaller.callCoins();
+		MethodCaller.callTeleporter();
+		MethodCaller.callLives();	
+		MethodCaller.callRobotRunner();
+		/*******************************************************************
+		 * Calling killer methods
+		 *******************************************************************/
+		MethodCaller.callPit();
+		MethodCaller.callMon();
+		MethodCaller.callMum();
+		
 		testing.Paint.drawPanel.repaint();
 	}
 

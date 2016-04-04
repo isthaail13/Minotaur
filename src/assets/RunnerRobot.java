@@ -65,35 +65,55 @@ public class RunnerRobot {
 	// Methods
 
 	public void moveRight() {
-		setOrientation(3);
-		if (GenLevel.grid[this.getY()][this.getX()].getCanMoveRight() == true)
-			this.setX(this.getX() + 1);
-		else
-			return;
+		try{
+			setOrientation(3);
+			if (GenLevel.grid[this.getY()][this.getX()].getCanMoveRight() == true)
+				this.setX(this.getX() + 1);
+			else
+				return;
+		}catch(Exception e){
+			
+		}
+
 	}
 
 	public void moveLeft() {
-		setOrientation(1);
-		if (GenLevel.grid[this.getY()][this.getX()].getCanMoveLeft() == true)
-			this.setX(this.getX() - 1);
-		else
-			return;
+		try{
+			setOrientation(1);
+			if (GenLevel.grid[this.getY()][this.getX()].getCanMoveLeft() == true)
+				this.setX(this.getX() - 1);
+			else
+				return;
+		}catch(Exception e){
+			
+		}
+
 	}
 
 	public void moveUp() {
-		setOrientation(0);
-		if (GenLevel.grid[this.getY()][this.getX()].getCanMoveUp() == true)
-			this.setY(this.getY() - 1);
-		else
-			return;
+		try{
+			setOrientation(0);
+			if (GenLevel.grid[this.getY()][this.getX()].getCanMoveUp() == true)
+				this.setY(this.getY() - 1);
+			else
+				return;
+		}catch(Exception e){
+			
+		}
+
 	}
 
 	public void moveDown() {
-		setOrientation(2);
-		if (GenLevel.grid[this.getY()][this.getX()].getCanMoveDown() == true)
-			this.setY(this.getY() + 1);
-		else
-			return;
+		try{
+			setOrientation(2);
+			if (GenLevel.grid[this.getY()][this.getX()].getCanMoveDown() == true)
+				this.setY(this.getY() + 1);
+			else
+				return;
+		}catch(Exception e){
+			
+		}
+
 	}
 
 	public void substractLives() {
