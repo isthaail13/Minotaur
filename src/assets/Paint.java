@@ -39,8 +39,8 @@ public class Paint {
 			}
 		}
 
-		if (GenLevel.mainChar.getX() == GenLevel.transporter.getTransporterX()
-				&& GenLevel.mainChar.getY() == GenLevel.transporter.getTransporterY()) {
+		if (GenLevel.mainChar.getX() == GenLevel.transporter.getX()
+				&& GenLevel.mainChar.getY() == GenLevel.transporter.getY()) {
 			GenLevel.mainChar.setLocation(8, 3);
 		}
 		for (int i = 0; i < GenLevel.life.size(); i++) {
@@ -129,7 +129,7 @@ public class Paint {
 			return 'S';
 		if (GenLevel.rr.getX() == x && GenLevel.rr.getY() == y)
 			return 'Y';
-		if (GenLevel.transporter.getTransporterX() == x && GenLevel.transporter.getTransporterY() == y)
+		if (GenLevel.transporter.getX() == x && GenLevel.transporter.getY() == y)
 			return 'T';
 		if (GenLevel.ball.getX() == x && GenLevel.ball.getY() == y)
 			return '+';

@@ -1,6 +1,6 @@
 package assets;
 
-public class Lives {
+public class Lives extends Block {
 	private int x=0;
 	private int y=0;
 	Lives(){

@@ -1,10 +1,17 @@
 package assets;
 
-public class Transporter {
+public class Transporter extends Block {
 	private int firstLocationX=0;
 	private int firstLocationY=0;
 	private int newLocationX=0;
 	private int newLocationY=0;
+	
+	Transporter(){	
+		firstLocationX=(int) (Math.random()*10);
+		firstLocationY=(int) (Math.random()*10);
+		newLocationX = (int) (Math.random()*10);
+		newLocationY = (int) (Math.random()*10);
+	}
 	
 	Transporter(int firstLocationX, int firstLocationY, int newLocationX,int newLocationY){	
 		this.firstLocationX = newLocationX;
@@ -20,11 +27,11 @@ public class Transporter {
 		this.newLocationY = newLocationY;
 	}
 
-	public int getTransporterX(){
+	public int getX(){
 		return this.newLocationX;
 	}
 	
-	public int getTransporterY(){
+	public int getY(){
 		return this.newLocationY;
 	}
 	

@@ -4,7 +4,7 @@ import java.util.Random;
 import java.math.*;
 //The Block class is easily our most important class. 
 //It creates the data for our map world, which is incredibly important!
-public class Coins {
+public class Coins extends Block{
 
 	private int x;
 	private int y;
@@ -40,6 +40,6 @@ public class Coins {
 	public int getY() {
 		return y;
 	}
-
+	
 
 }
