@@ -25,6 +25,31 @@ public class Paint {
 				}else{
 				System.out.print(out);
 				array[i][j] = out;
+<<<<<<< HEAD
+=======
+			}
+			System.out.println();
+		}
+		
+		for (int i = 0; i < GenLevel.coinArray.size(); i++) {
+			if (GenLevel.mainChar.getX() == GenLevel.coinArray.get(i).getX()
+					&& GenLevel.mainChar.getY() == GenLevel.coinArray.get(i).getY()) {
+				GenLevel.coinArray.remove(i);
+				GenLevel.mainChar.addCoins();
+			}
+		}
+
+		if (GenLevel.mainChar.getX() == GenLevel.transporter.getX()
+				&& GenLevel.mainChar.getY() == GenLevel.transporter.getY()) {
+			GenLevel.mainChar.setLocation(8, 3);
+		}
+		for (int i = 0; i < GenLevel.life.size(); i++) {
+			if (GenLevel.life.size() > 0) {
+				if (GenLevel.life.get(i).getX() == GenLevel.mainChar.getX()
+						&& GenLevel.life.get(i).getY() == GenLevel.mainChar.getY()) {
+					GenLevel.mainChar.addLives();
+					GenLevel.life.remove(i);
+>>>>>>> refs/remotes/origin/alexesca-patch-1
 				}
 			}
 			System.out.println();
@@ -112,8 +137,12 @@ public class Paint {
 		 ****************************************************************/
 		if (GenLevel.rr.getX() == x && GenLevel.rr.getY() == y)
 			return 'Y';
+<<<<<<< HEAD
 
 		if (GenLevel.transporter.getTransporterX() == x && GenLevel.transporter.getTransporterY() == y)
+=======
+		if (GenLevel.transporter.getX() == x && GenLevel.transporter.getY() == y)
+>>>>>>> refs/remotes/origin/alexesca-patch-1
 			return 'T';
 		if (GenLevel.ball.getX() == x && GenLevel.ball.getY() == y)
 			return '+';

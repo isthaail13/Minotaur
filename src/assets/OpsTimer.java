@@ -15,6 +15,7 @@ class TimerListener1 implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 		Paint paint = new Paint();
 		End.CheckEnd();
 		paint.paint(GenLevel.grid);
@@ -34,7 +35,12 @@ class TimerListener1 implements ActionListener {
 		MethodCaller.callMon();
 		MethodCaller.callMum();
 		
+=======
+		//Paint paint = new Paint();
+		//paint.paint(GenLevel.grid);
+>>>>>>> refs/remotes/origin/alexesca-patch-1
 		testing.Paint.drawPanel.repaint();
+		End.CheckEnd();
 	}
 
 }

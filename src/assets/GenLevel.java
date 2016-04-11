@@ -13,22 +13,24 @@ public class GenLevel {
 	public static MoveCharacter mainChar = new MoveCharacter();
 	public static int level = 1;
 	public static End end = new End();
-	public static Block start = new Block();
+	public static Start start = new Start();
 	public static RunnerRobot rr = new RunnerRobot();
 	/*******************************************************************
 	 * Code Added by Alex This are the instances of my objects
 	 *******************************************************************/
 	public static ArrayList<Coins> coinArray = new ArrayList<Coins>();
-	public static Transporter transporter = new Transporter(6, 6, 4, 1);
+	public static Transporter transporter = new Transporter();
 	public static ArrayList<Lives> life = new ArrayList<Lives>();
 	public static ThreadBall threadBall = new ThreadBall();
 	public static Ball ball = new Ball(9, 5);
 	public static MovesMade moves = new MovesMade();
 	public static TimerMoves timerMoves = new TimerMoves();
 	private static long startTime;
+	
 	private static long stopTime;
 	private static ReadFileScores fileMaze;
 	private static WriteFile writeToFile;
+<<<<<<< HEAD
 	static Path currentDir = Paths.get(".");
 	final static String FILEPATH = currentDir.toAbsolutePath() + "/src/assets/Scores.txt";
 	/**
@@ -40,10 +42,17 @@ public class GenLevel {
 	/**
 	 * end of Ian
 	 */
+=======
+	
+	public static Pit pit = new Pit();
+	public static Monster monster = new Monster();
+	public static Mummy mummy = new Mummy();
+>>>>>>> refs/remotes/origin/alexesca-patch-1
 
 	// The main method is only here for testing purposes. When the game finally
 	// runs, main method will be taken out.
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		try {
 			fileMaze = new ReadFileScores();
 			/*******************************************************************
@@ -89,6 +98,27 @@ public class GenLevel {
 			printScores();
 		}
 		
+=======
+//		try {
+//			fileMaze = new ReadFileScores();
+//		}catch (IOException e) {
+//			e.printStackTrace();
+//		}
+			startTime = timerMoves.Time();
+			//if(Login.getName()!= null){
+			for(int i = 0;i<11;i++){
+				coinArray.add(new Coins());
+			}
+			//Adding lives
+			life.add(new Lives(1,1));
+			life.add(new Lives(9,8));
+			life.add(new Lives(9,6));
+			genLevel1(grid);
+			testing.Paint.main();
+			testing.KeyEventDemo.begin();
+			OpsTimer.timer1.start();
+			//}
+>>>>>>> refs/remotes/origin/alexesca-patch-1
 	}
 
 	public static void genLevel() {
@@ -104,10 +134,17 @@ public class GenLevel {
 			genLevel3(grid);
 			break;
 		case 4:
+<<<<<<< HEAD
 			genLevel4(grid);
 			break;
 		case 5:
 			genLevel5(grid);
+=======
+			genLevel5(grid);
+			break;
+		case 5:
+			genLevel4(grid);
+>>>>>>> refs/remotes/origin/alexesca-patch-1
 			break;
 		case 6:
 			genLevel6(grid);
@@ -849,12 +886,17 @@ public class GenLevel {
 		grid[9][8].setType(7);
 		grid[9][9].setType(9);
 
+<<<<<<< HEAD
 		
 		//Main character.
+=======
+		// This level's start/end point set in the maze 
+>>>>>>> refs/remotes/origin/alexesca-patch-1
 		start.setX(0);
 		start.setY(9);
 		end.setX(2);
 		end.setY(9);
+<<<<<<< HEAD
 		mainChar.setLocation(start.getX(), start.getY());
 		pit.setPosition(1, 7);
 		pit.setPosition(4, 5);
@@ -871,6 +913,31 @@ public class GenLevel {
 		mummy.setPosition(7, 1);
 		mummy.setPosition(8, 0);
 		mummy.setPosition(9, 7);
+=======
+		// Character's starting position set
+		mainChar.setLocation(start.getX(), start.getY());
+		
+		// Obstacle-pit settings in the maze
+//		pit.setPosition(1, 7);
+//		pit.setPosition(4, 5);
+//		pit.setPosition(5, 8);
+//		
+//		// Obstacle-monster settings in the maze
+//		monster.setPosition(0, 1);
+//		monster.setPosition(2, 3);
+//		monster.setPosition(4, 0);
+//		monster.setPosition(4, 1);
+//		monster.setPosition(8, 6);
+//		monster.setPosition(9, 2);
+//		
+//		// Obstacle-mummy settings in the maze
+//		mummy.setPosition(4, 7);
+//		mummy.setPosition(5, 3);
+//		mummy.setPosition(6, 2);
+//		mummy.setPosition(7, 1);
+//		mummy.setPosition(8, 0);
+//		mummy.setPosition(9, 7);
+>>>>>>> refs/remotes/origin/alexesca-patch-1
 	}
 	
 	// Level 6 - Snail Stage
@@ -890,7 +957,11 @@ public class GenLevel {
 		grid[0][6].setType(7);
 		grid[0][7].setType(7);
 		grid[0][8].setType(7);
+<<<<<<< HEAD
 		grid[0][9].setType(4);
+=======
+		grid[0][9].setType(10);
+>>>>>>> refs/remotes/origin/alexesca-patch-1
 
 		// second row
 
@@ -903,7 +974,11 @@ public class GenLevel {
 		grid[1][6].setType(7);
 		grid[1][7].setType(7);
 		grid[1][8].setType(8);
+<<<<<<< HEAD
 		grid[1][9].setType(4);
+=======
+		grid[1][9].setType(9);
+>>>>>>> refs/remotes/origin/alexesca-patch-1
 
 		// third row
 
@@ -1010,11 +1085,16 @@ public class GenLevel {
 		grid[9][9].setType(9);
 
 		
+<<<<<<< HEAD
 		//Main character.
+=======
+		// This level's start/end point set in the maze
+>>>>>>> refs/remotes/origin/alexesca-patch-1
 		start.setX(4);
 		start.setY(4);
 		end.setX(0);
 		end.setY(9);
+<<<<<<< HEAD
 		mainChar.setLocation(start.getX(), start.getY());
 		pit.setPosition(4, 5);
 		pit.setPosition(4, 6);
@@ -1045,5 +1125,45 @@ public class GenLevel {
 		mummy.setPosition(9, 1);
 	}
 
+=======
+		// Character's starting position set
+		mainChar.setLocation(start.getX(), start.getY());
+		
+		// Obstacle-pit settings in the maze
+//		pit.setPosition(4, 5);
+//		pit.setPosition(4, 6);
+//		pit.setPosition(4, 7);
+//		pit.setPosition(4, 8);
+//		pit.setPosition(4, 9);
+//		
+//		// Obstacle-monster settings in the maze
+//		monster.setPosition(4, 0);
+//		monster.setPosition(4, 1);
+//		monster.setPosition(4, 2);
+//		monster.setPosition(4, 3);
+//		monster.setPosition(0, 4);
+//		monster.setPosition(1, 4);
+//		monster.setPosition(2, 4);
+//		monster.setPosition(3, 4);
+//		monster.setPosition(6, 4);
+//		monster.setPosition(7, 4);
+//		monster.setPosition(8, 4);
+//		monster.setPosition(9, 4);
+//		
+//		// Obstacle-mummy settings in the maze
+//		mummy.setPosition(0, 9);
+//		mummy.setPosition(1, 8);
+//		mummy.setPosition(2, 7);
+//		mummy.setPosition(3, 6);
+//		mummy.setPosition(4, 5);
+//		mummy.setPosition(5, 3);
+//		mummy.setPosition(6, 2);
+//		mummy.setPosition(7, 1);
+//		mummy.setPosition(8, 0);
+//		mummy.setPosition(9, 1);
+	}
+
+
+>>>>>>> refs/remotes/origin/alexesca-patch-1
 
 }

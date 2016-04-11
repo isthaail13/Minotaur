@@ -2,7 +2,7 @@ package assets;
 
 import java.util.ArrayList;
 
-public class MoveCharacter {
+public class MoveCharacter extends Block{
 
 	// Data Fields.
 	private int x;
