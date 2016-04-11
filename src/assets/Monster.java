@@ -10,7 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
+//
 public class Monster extends Block{
+//
+public class Monster {
+//
 
 	// Two timers 
 	// timer1 : timer for checking the event happening (e.g. character met monster)
@@ -18,6 +22,7 @@ public class Monster extends Block{
 	Timer timer1 = new Timer(1000 / 30, new TimerListenerA());
 	Timer timer2 = new Timer(1000, new TimerListenerB()); //every 1 second
 
+//
 	// Basic positions of this obstacle on the maze
 	private int x = 0;
 	private int y = 0;
@@ -29,6 +34,14 @@ public class Monster extends Block{
 	public Monster(){
 		this.x = (int) (Math.random()*10);
 		this.y = (int) (Math.random()*10);
+//
+	private int x = 0;
+	private int y = 0;
+	private boolean active;
+
+	public Monster(){
+		
+//
 	}
 	
 	public Monster(int x, int y){
@@ -36,7 +49,10 @@ public class Monster extends Block{
 		this.y = y;
 	}
 	
+//
 	// getters and setters
+//
+//
 	public void setPosition(int x, int y){
 		this.x = x;
 		this.y = y;
@@ -49,7 +65,11 @@ public class Monster extends Block{
 	public int getY(){
 		return this.y;
 	}
+//
 	
+//
+	//Setter... getter for active
+//
 	public boolean getActive(){
 		return this.active;
 	}
@@ -58,7 +78,10 @@ public class Monster extends Block{
 		this.active = active;
 	}
 
+//
 	// This method check if the obstacle and character meet
+
+
 	public boolean checkEvent(){
 		if(GenLevel.mainChar.getX() == this.x && GenLevel.mainChar.getY() == this.y 
 				&& getActive())
@@ -69,21 +92,32 @@ public class Monster extends Block{
 	
 	
 	// Ian - this timer check when the character hit the pit
+
 	// then if hit, reduce the life of character and decide game is over or
 	// continue
+
+
 		class TimerListenerA implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(checkEvent()){
 					GenLevel.mainChar.substractLives();
+
 					//GenLevel.mainChar.checkGameOver();		
+
+					GenLevel.mainChar.checkGameOver();		
+
 				}		
 			}
 			
 		}
 		
+
 		// Ian - this timer is for toggling the pit (not using at this point for GUI)
+
+		// Ian - this timer is for toggling the pit
+
 		//this line with 'extends Monster' causes stack-overflow error
 		//class TimerListenerB extends Monster implements ActionListener { 
 		class TimerListenerB implements ActionListener{

@@ -10,7 +10,7 @@ public class MoveCharacter extends Block{
 	private int orientation;
 	private final int MAXORIENTATION = 3;
 	private final int MINORIENTATION = 0;
-	public static int lives;
+	public static int lives = 2;
 	private int coins = 0;
 	private String name;
 	public static ArrayList<String> path = new ArrayList<String>();
@@ -18,6 +18,7 @@ public class MoveCharacter extends Block{
 
 	// Constructors
 	public MoveCharacter() {
+		
 	}
 
 	public MoveCharacter(int x, int y) {
@@ -74,10 +75,13 @@ public class MoveCharacter extends Block{
 		setOrientation(3);
 		if (GenLevel.grid[this.getY()][this.getX()].getCanMoveRight() == true) {
 			this.setX(this.getX() + 1);
-			// path.add(String.valueOf(this.getX()));
-			// path.add(String.valueOf(this.getY()));
-			// path.add("-");
+//			if(GenLevel.level==2){
+//			 path.add(String.valueOf(this.getX()));
+//			 path.add(String.valueOf(this.getY()));
+//			 path.add("-");
+//			}
 			movements.addMovements();
+			assets.GenLevel.rr.moveRight();
 		} else
 			return;
 	}
@@ -87,6 +91,12 @@ public class MoveCharacter extends Block{
 		if (GenLevel.grid[this.getY()][this.getX()].getCanMoveLeft() == true){
 			this.setX(this.getX() - 1);
 			movements.addMovements();
+			assets.GenLevel.rr.moveLeft();
+//			if(GenLevel.level==2){
+//				 path.add(String.valueOf(this.getX()));
+//				 path.add(String.valueOf(this.getY()));
+//				 path.add("-");
+//				}
 		}else
 			return;
 	}
@@ -97,10 +107,13 @@ public class MoveCharacter extends Block{
 			this.setY(this.getY() - 1);
 			// //path.add("%s %s".format(String.valueOf(this.getX()),
 			// String.valueOf(this.getY())));
-			// path.add(String.valueOf(this.getX()));
-			// path.add(String.valueOf(this.getY()));
-			// path.add("-");
+//			if(GenLevel.level==2){
+//				path.add(String.valueOf(this.getX()));
+//				 path.add(String.valueOf(this.getY()));
+//				 path.add("-");
+//			}
 			movements.addMovements();
+			assets.GenLevel.rr.moveUp();
 		} else
 			return;
 	}
@@ -110,11 +123,18 @@ public class MoveCharacter extends Block{
 		if (GenLevel.grid[this.getY()][this.getX()].getCanMoveDown() == true){
 			this.setY(this.getY() + 1);
 			movements.addMovements();
+			assets.GenLevel.rr.moveDown(); 
+//			if(GenLevel.level==2){
+//				 path.add(String.valueOf(this.getX()));
+//				 path.add(String.valueOf(this.getY()));
+//				 path.add("-");
+//				}
 		}else
 			return;
 	}
 
 	/***************************************************
+	 * This codes implements more capabilities of the main character 
 	 * Code added by Alex Coins
 	 ******************************************************/
 	
@@ -178,5 +198,30 @@ public class MoveCharacter extends Block{
 	public int getLives() {
 		return this.lives;
 	}
+	
+
+	/** 
+	 * from here by Ian
+	 * 
+	 * This method check when the player has event such as falling into pit.
+	 * In case, this method invoke and check the situation to decide next step.
+	 * After it check the rest of character life then restart the level or  
+	 * display the game is over message. 
+	 */
+
+	public void checkGameOver(){
+		if(this.lives == 0){
+			System.out.println("You have no more lives, Game is Over");
+			System.exit(0);
+		}
+		else{
+			GenLevel.level--;
+			GenLevel.genLevel();
+		}
+
+	}
+	/**
+	 * end of Ian
+	 */
 
 }

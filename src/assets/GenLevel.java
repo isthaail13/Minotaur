@@ -1,6 +1,8 @@
 package assets;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 //This class creates levels based on fun stuff.
@@ -13,6 +15,9 @@ public class GenLevel {
 	public static End end = new End();
 	public static Start start = new Start();
 	public static RunnerRobot rr = new RunnerRobot();
+	/*******************************************************************
+	 * Code Added by Alex This are the instances of my objects
+	 *******************************************************************/
 	public static ArrayList<Coins> coinArray = new ArrayList<Coins>();
 	public static Transporter transporter = new Transporter();
 	public static ArrayList<Lives> life = new ArrayList<Lives>();
@@ -25,14 +30,29 @@ public class GenLevel {
 	private static long stopTime;
 	private static ReadFileScores fileMaze;
 	private static WriteFile writeToFile;
+
 	
 	public static Pit pit = new Pit();
 	public static Monster monster = new Monster();
 	public static Mummy mummy = new Mummy();
+///=======
+	static Path currentDir = Paths.get(".");
+	final static String FILEPATH = currentDir.toAbsolutePath() + "/src/assets/Scores.txt";
+	/**
+	 *  from here by Ian
+	 */
+	public static Pit pit = new Pit(3,9);
+	public static Monster monster = new Monster();
+	public static Mummy mummy = new Mummy();
+	/**
+	 * end of Ian
+	 */
+
 
 	// The main method is only here for testing purposes. When the game finally
 	// runs, main method will be taken out.
 	public static void main(String[] args) {
+
 //		try {
 //			fileMaze = new ReadFileScores();
 //		}catch (IOException e) {
@@ -52,6 +72,53 @@ public class GenLevel {
 			testing.KeyEventDemo.begin();
 			OpsTimer.timer1.start();
 			//}
+
+		try {
+			fileMaze = new ReadFileScores();
+			/*******************************************************************
+			 * Code Added by Alex This are the instances of my objects startTime
+			 * gets the time when the game is started The for loop add new coins
+			 *******************************************************************/
+			startTime = timerMoves.Time();
+			if (Login.getName() != null) {
+				genLevel1(grid);
+				for (int i = 0; i < 11; i++) {
+					coinArray.add(new Coins());
+				}
+				// Adding lives
+				life.add(new Lives(1, 1));
+				life.add(new Lives(9, 8));
+				life.add(new Lives(9, 6));
+				/*******************************************************************
+				 *******************************************************************/
+				// testing.Paint.main();
+				testing.KeyEventDemo.begin();
+				OpsTimer.timer1.start();
+				/**
+				 *  from here by Ian
+				 */
+//				pit.timer1.start();
+//				pit.timer2.start();
+				monster.timer1.start();
+				monster.timer2.start();
+				mummy.timer1.start();
+				mummy.timer2.start();
+				/**
+				 * end of Ian
+				 */
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void endGame(){
+		if(mainChar.getLives()<=0){
+			OpsTimer.timer1.stop();
+			printScores();
+		}
+		
+
 	}
 
 	public static void genLevel() {
@@ -67,10 +134,13 @@ public class GenLevel {
 			genLevel3(grid);
 			break;
 		case 4:
+//<<<<<<< HEAD
 			genLevel5(grid);
 			break;
 		case 5:
 			genLevel4(grid);
+			break;
+//>>>>>>> master
 			break;
 		case 6:
 			genLevel6(grid);
@@ -79,22 +149,32 @@ public class GenLevel {
 			printScores();
 		}
 	}
-	
-	public static void printScores(){
+
+	/*******************************************************************
+	 * Code Added by Alex This method print the final scores and save the data
+	 * to the file
+	 * 	 * Code Added by Alex
+	 *******************************************************************/
+	public static void printScores() {
 		try {
 			writeToFile = new WriteFile();
 			OpsTimer.timer1.stop();
-			if(!OpsTimer.timer1.isRunning()){
-			stopTime = timerMoves.Time();
-			System.out.println("Lives: " + mainChar.lives + "\nCoins: " + mainChar.getCoins() + "\nMovements: "
-					+ mainChar.getMoves() + "\nTime Spent: " + timerMoves.computeTimer(startTime, stopTime));
+			if (!OpsTimer.timer1.isRunning()) {
+				stopTime = timerMoves.Time();
+				System.out.println("Lives: " + mainChar.lives + "\nCoins: " + mainChar.getCoins() + "\nMovements: "
+						+ mainChar.getMoves() + "\nTime Spent: " + timerMoves.computeTimer(startTime, stopTime));
 			}
-			writeToFile.writeToFile(mainChar.getName(),mainChar.getLives(), mainChar.getMoves(), mainChar.getCoins(), timerMoves.computeTimer(startTime, stopTime));
-		}catch (IOException e) {
+			writeToFile.writeToFile(mainChar.getName(), mainChar.getLives(), mainChar.getMoves(), mainChar.getCoins(),
+					timerMoves.computeTimer(startTime, stopTime));
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/******************************************************************
+	 *******************************************************************/
+	
+	
 	// Start with level 1.
 	private static void genLevel1(Maze[][] grid) {
 		for (int i = 0; i < grid.length; i++)
@@ -236,6 +316,8 @@ public class GenLevel {
 		end.setX(9);
 		end.setY(0);
 		mainChar.setLocation(start.getX(), start.getY());
+		rr.setX(9);
+		rr.setX(1);
 	}
 
 	private static void genLevel2(Maze[][] grid) {
@@ -374,10 +456,13 @@ public class GenLevel {
 		mainChar.setLocation(5, 9);
 		end.setX(4);
 		end.setY(0);
-		rr.setX(4);
-		rr.setY(2);
+		rr.setX(9);
+		rr.setX(1);
 	}
 
+	/*******************************************************************
+	 * Code Added by Alex These are my mazes
+	 *******************************************************************/
 	private static void genLevel3(Maze[][] grid) {
 		// first row
 		grid[0][0].setType(11);
@@ -474,7 +559,7 @@ public class GenLevel {
 		grid[7][0].setType(2);
 		grid[7][1].setType(4);
 		grid[7][2].setType(6);
-		grid[7][3].setType(2);
+		grid[7][3].setType(1);
 		grid[7][4].setType(5);
 		grid[7][5].setType(3);
 		grid[7][6].setType(2);
@@ -509,13 +594,13 @@ public class GenLevel {
 		grid[9][9].setType(15);
 
 		// Main character.
-		start.setX(2);
-		start.setY(3);
+		start.setX(9);
+		start.setY(9);
 		mainChar.setLocation(9, 9);
-		end.setX(7);
-		end.setY(8);
-		rr.setX(4);
-		rr.setY(2);
+		end.setX(8);
+		end.setY(0);
+		rr.setX(8);
+		rr.setY(7);
 	}
 
 	private static void genLevel4(Maze[][] grid) {
@@ -654,8 +739,8 @@ public class GenLevel {
 		mainChar.setLocation(9, 9);
 		end.setX(7);
 		end.setY(8);
-		rr.setX(4);
-		rr.setY(2);
+		rr.setX(9);
+		rr.setX(1);
 	}
 	
 	/**
@@ -797,11 +882,17 @@ public class GenLevel {
 		grid[9][8].setType(7);
 		grid[9][9].setType(9);
 
+<<<<<<< HEAD
 		// This level's start/end point set in the maze 
+=======
+		
+		//Main character.
+>>>>>>> master
 		start.setX(0);
 		start.setY(9);
 		end.setX(2);
 		end.setY(9);
+<<<<<<< HEAD
 		// Character's starting position set
 		mainChar.setLocation(start.getX(), start.getY());
 		
@@ -825,6 +916,24 @@ public class GenLevel {
 //		mummy.setPosition(7, 1);
 //		mummy.setPosition(8, 0);
 //		mummy.setPosition(9, 7);
+=======
+		mainChar.setLocation(start.getX(), start.getY());
+		pit.setPosition(1, 7);
+		pit.setPosition(4, 5);
+		pit.setPosition(5, 8);
+		monster.setPosition(0, 1);
+		monster.setPosition(2, 3);
+		monster.setPosition(4, 0);
+		monster.setPosition(4, 1);
+		monster.setPosition(8, 6);
+		monster.setPosition(9, 2);
+		mummy.setPosition(4, 7);
+		mummy.setPosition(5, 3);
+		mummy.setPosition(6, 2);
+		mummy.setPosition(7, 1);
+		mummy.setPosition(8, 0);
+		mummy.setPosition(9, 7);
+>>>>>>> master
 	}
 	
 	// Level 6 - Snail Stage
@@ -844,7 +953,11 @@ public class GenLevel {
 		grid[0][6].setType(7);
 		grid[0][7].setType(7);
 		grid[0][8].setType(7);
+<<<<<<< HEAD
 		grid[0][9].setType(10);
+=======
+		grid[0][9].setType(4);
+>>>>>>> master
 
 		// second row
 
@@ -857,7 +970,11 @@ public class GenLevel {
 		grid[1][6].setType(7);
 		grid[1][7].setType(7);
 		grid[1][8].setType(8);
+<<<<<<< HEAD
 		grid[1][9].setType(9);
+=======
+		grid[1][9].setType(4);
+>>>>>>> master
 
 		// third row
 
@@ -964,11 +1081,16 @@ public class GenLevel {
 		grid[9][9].setType(9);
 
 		
+<<<<<<< HEAD
 		// This level's start/end point set in the maze
+=======
+		//Main character.
+>>>>>>> master
 		start.setX(4);
 		start.setY(4);
 		end.setX(0);
 		end.setY(9);
+<<<<<<< HEAD
 		// Character's starting position set
 		mainChar.setLocation(start.getX(), start.getY());
 		
@@ -1007,5 +1129,37 @@ public class GenLevel {
 	}
 
 
+=======
+		mainChar.setLocation(start.getX(), start.getY());
+		pit.setPosition(4, 5);
+		pit.setPosition(4, 6);
+		pit.setPosition(4, 7);
+		pit.setPosition(4, 8);
+		pit.setPosition(4, 9);
+		monster.setPosition(4, 0);
+		monster.setPosition(4, 1);
+		monster.setPosition(4, 2);
+		monster.setPosition(4, 3);
+		monster.setPosition(0, 4);
+		monster.setPosition(1, 4);
+		monster.setPosition(2, 4);
+		monster.setPosition(3, 4);
+		monster.setPosition(6, 4);
+		monster.setPosition(7, 4);
+		monster.setPosition(8, 4);
+		monster.setPosition(9, 4);
+		mummy.setPosition(0, 9);
+		mummy.setPosition(1, 8);
+		mummy.setPosition(2, 7);
+		mummy.setPosition(3, 6);
+		mummy.setPosition(4, 5);
+		mummy.setPosition(5, 3);
+		mummy.setPosition(6, 2);
+		mummy.setPosition(7, 1);
+		mummy.setPosition(8, 0);
+		mummy.setPosition(9, 1);
+	}
+
+>>>>>>> master
 
 }
