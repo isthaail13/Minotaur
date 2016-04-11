@@ -38,16 +38,7 @@ public class Paint extends JFrame {
 	public static class DrawPanel extends JPanel {
 
 		public DrawPanel() {
-			// for (int i = 0; i < 10; i++) {
-			// for (int j = 0; j < 10; j++) {
-			/*
-			 * try { image = ImageIO.read( new File(String.format(
-			 * "C:\\Users\\salem_000\\Pictures\\MinotaurAssets\\maze\\%d.png",
-			 * assets.GenLevel.grid[i][j].getType()))); } catch (IOException e)
-			 * { // TODO Auto-generated catch block e.printStackTrace(); }
-			 */
-			// }
-			// }
+		
 		}
 
 		public void loopy(Graphics g) {

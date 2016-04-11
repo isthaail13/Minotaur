@@ -47,7 +47,7 @@ public class GenLevel {
 
 		
 		genLevel1(grid);
-		//testing.Paint.main(); //Output Window for GUI.
+		testing.Paint.main(); //Output Window for GUI.
 		testing.KeyEventDemo.begin();
 		OpsTimer.timer1.start();
 		
